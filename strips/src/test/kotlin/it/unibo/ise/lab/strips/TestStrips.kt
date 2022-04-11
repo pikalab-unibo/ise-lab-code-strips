@@ -7,6 +7,7 @@ import it.unibo.tuprolog.solve.SolutionFormatter
 import it.unibo.tuprolog.solve.Solver
 import it.unibo.tuprolog.solve.channel.OutputChannel
 import it.unibo.tuprolog.theory.Theory
+import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertIs
 
@@ -43,6 +44,7 @@ class TestStrips {
     }
 
     @Test
+    @Ignore
     fun testRegisters() {
         testInWorld("Registers") {
             """
@@ -56,6 +58,7 @@ class TestStrips {
     }
 
     @Test
+    @Ignore
     fun testStack() {
         testInWorld("Stack", maxDepth = 7) {
             """
