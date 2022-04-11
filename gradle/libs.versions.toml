@@ -1,0 +1,28 @@
+[versions]
+kotlin = "1.6.10"
+tuprolog = "0.20.4"
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+
+[libraries]
+kotlin-bom = { module = "org.jetbrains.kotlin:kotlin-bom", version.ref = "kotlin" }
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+kotlin-stdlib-jvm = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
+kotlin-stdlib-js = { module = "org.jetbrains.kotlin:kotlin-stdlib-js", version.ref = "kotlin" }
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
+tuprolog-full = { module = "it.unibo.tuprolog:2p-jvm", version.ref = "tuprolog" }
+tuprolog-ide = { module = "it.unibo.tuprolog:ide", version.ref = "tuprolog" }
+tuprolog-repl = { module = "it.unibo.tuprolog:repl-jvm", version.ref = "tuprolog" }
+tuprolog-core = { module = "it.unibo.tuprolog:core-jvm", version.ref = "tuprolog" }
+tuprolog-unify = { module = "it.unibo.tuprolog:unify-jvm", version.ref = "tuprolog" }
+tuprolog-theory = { module = "it.unibo.tuprolog:theory-jvm", version.ref = "tuprolog" }
+tuprolog-solve-classic = { module = "it.unibo.tuprolog:solve-classic-jvm", version.ref = "tuprolog" }
+tuprolog-parser-core = { module = "it.unibo.tuprolog:parser-core-jvm", version.ref = "tuprolog" }
+tuprolog-parser-theory = { module = "it.unibo.tuprolog:parser-theory-jvm", version.ref = "tuprolog" }
+tuprolog-dsl-core = { module = "it.unibo.tuprolog:dsl-core-jvm", version.ref = "tuprolog" }
+tuprolog-dsl-unify = { module = "it.unibo.tuprolog:dsl-unify-jvm", version.ref = "tuprolog" }
+tuprolog-dsl-theory = { module = "it.unibo.tuprolog:dsl-theory-jvm", version.ref = "tuprolog" }
+tuprolog-dsl-solve = { module = "it.unibo.tuprolog:dsl-solve-jvm", version.ref = "tuprolog" }

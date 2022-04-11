@@ -1,0 +1,19 @@
+image: gradle:latest
+
+variables:
+  GOPTS: "--no-daemon --console=plain"
+
+Compile:
+  stage: build
+  script:
+    - gradle classes testClasses $GOPTS
+  only:
+    - branches
+
+Run Tests:
+  stage: test
+  script: gradle test $GOPTS
+  only:
+    - branches
+  needs:
+    - job: Compile
