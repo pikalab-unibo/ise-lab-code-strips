@@ -6,15 +6,15 @@
 action(
     inc(R),
     if [register(R, X)],
-    + [register(R, X + 1)],
+    + [register(R, Y)],
     - [register(R, X)],
-    where(true)
+    where(Y is X + 1)
 ).
 
 action(
     dec(R),
     if [register(R, X)],
-    + [register(R, X - 1)],
+    + [register(R, Y)],
     - [register(R, X)],
-    where(true)
+    where(Y is X - 1)
 ).

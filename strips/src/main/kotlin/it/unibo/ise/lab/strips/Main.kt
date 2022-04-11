@@ -24,14 +24,10 @@ object Main {
         verbose = hasFlag(args, "-v", "--verbose")
         initialState = getArg(args, initialState, "-is", "--initialState")
         goal = getArg(args, goal, "-g", "--goal")
-        worldFile = getArg(args, worldFile, "-w", "--world")
+        worldFile = getArg(args, worldFile, "-w", "--world") ?: error("Missing world")
         maxDepth = getArg(args, maxDepth, "-md", "--maxDepth")
 
-        var theory = parseFileAsTheory(Main::class.java.getResource("/$worldFile.pl"))
-        theory = theory.plus(parseFileAsTheory(Main::class.java.getResource("/Strips.pl")))
-        theory = theory.plus(parseFileAsTheory(Main::class.java.getResource("/Utils.pl")))
-
-        val agent = createEngineWithTheory(theory)
+        val agent = createEngineWithTheory(World.load(worldFile!!))
 
         agent.assertA(Struct.of("max_depth", Integer.of(maxDepth!!)))
 
@@ -56,10 +52,6 @@ object Main {
 
     private fun printSolution(operators: OperatorSet, current: Solution) {
         println(SolutionFormatter.withOperators(operators).format(current))
-    }
-
-    private fun parseFileAsTheory(file: URL?): Theory {
-        file!!.openStream().use { return ClausesReader.withDefaultOperators.readTheory(it) }
     }
 
     private fun createEngineWithTheory(theory: Theory): MutableSolver {
