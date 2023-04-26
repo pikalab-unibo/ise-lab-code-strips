@@ -6,7 +6,7 @@ import java.net.URL
 
 object World {
     private fun parseFileAsTheory(file: URL?): Theory {
-        file!!.openStream().use { return ClausesReader.withDefaultOperators.readTheory(it) }
+        file!!.openStream().use { return ClausesReader.withDefaultOperators().readTheory(it) }
     }
 
     fun load(name: String): Theory {

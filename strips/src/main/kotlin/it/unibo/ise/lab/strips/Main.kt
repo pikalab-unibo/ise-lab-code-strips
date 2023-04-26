@@ -7,6 +7,7 @@ import it.unibo.tuprolog.core.parsing.TermParser
 import it.unibo.tuprolog.solve.*
 import it.unibo.tuprolog.solve.channel.OutputChannel
 import it.unibo.tuprolog.solve.exception.Warning
+import it.unibo.tuprolog.solve.flags.TrackVariables
 import it.unibo.tuprolog.theory.Theory
 import it.unibo.tuprolog.theory.parsing.ClausesReader
 import java.net.URL
@@ -55,12 +56,13 @@ object Main {
     }
 
     private fun createEngineWithTheory(theory: Theory): MutableSolver {
-        return Solver.prolog.mutableSolverWithDefaultBuiltins(
-            staticKb = theory,
-            stdOut = OutputChannel.of(this::printOutput),
-            stdErr = OutputChannel.of(this::printError),
-            warnings = OutputChannel.of(this::printWarning)
-        )
+        return Solver.prolog.newBuilder()
+                .staticKb(theory)
+                .flag(TrackVariables) { ON }
+                .standardOutput(OutputChannel.of(this::printOutput))
+                .standardError(OutputChannel.of(this::printError))
+                .warnings(OutputChannel.of(this::printWarning))
+                .buildMutable()
     }
 
     private fun printOutput(message: String) {
