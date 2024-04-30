@@ -1,5 +1,5 @@
 plugins {
-    id("com.gradle.enterprise") version "3.17.2"
+    id("com.gradle.develocity") version "3.17.2"
 }
 
 dependencyResolutionManagement {
@@ -9,10 +9,10 @@ dependencyResolutionManagement {
 rootProject.name = "ise-lab-code-strips"
 include("strips")
 
-gradleEnterprise {
+develocity {
     buildScan {
-        termsOfServiceUrl = "https://gradle.com/terms-of-service"
-        termsOfServiceAgree = "yes"
-        publishOnFailure()
+        termsOfUseUrl = "https://gradle.com/terms-of-service"
+        termsOfUseAgree = "yes"
+        uploadInBackground = !System.getenv("CI").toBoolean()
     }
 }
